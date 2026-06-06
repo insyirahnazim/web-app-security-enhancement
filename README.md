@@ -3,16 +3,22 @@
 ## Group Members
 | Name | Matric No |
 |------|-----------|
-| Your Name | Your Matric No |
+| Member 1 | Matric No |
 | Member 2 | Matric No |
-| Member 3 | Matric No |
+| Nurizzati Insyirah Binti Mohd Nazim | 2227224 |
+| Member 4 | Matric No |
+| Member 5 | Matric No |
+
 
 ## Title of Web Application
 Roket Booking System
 
 ## Introduction
-Write 2-3 sentences about what your web app does.
-Example: Roket Booking System is a web application that allows users to book roofing services online. It was developed using Laravel framework with MySQL database.
+Roket Booking System is a web-based platform designed to facilitate efficient and seamless 
+booking experiences for users. The system allows users to register, log in, search for 
+available courts, select time slots, and make bookings with simulated payment processing. 
+Built using the Laravel framework with MySQL database, the system provides an intuitive 
+interface optimized for both desktop and mobile devices.
 
 ## Objective of Enhancements
 The objective of this enhancement is to harden the Roket Booking System by applying security elements including:
