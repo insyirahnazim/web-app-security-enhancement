@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="css/signin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <img src="images/roket.png" alt="Rocket Logo" class="logo-image">
+                <h1>BOOK!</h1>
+            </div>
+            <h2>Sign in</h2>
+            <p>Please login to continue to your account.</p>
+            <form id="login-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="keep-logged-in" name="keep-logged-in">
+                    <label for="keep-logged-in">Keep me logged in</label>
+                </div>
+                <button type="submit" class="btn primary-btn">Sign in</button>
+
+                <div class="separator">
+                    <hr class="line">
+                    <span class="or-text">or</span>
+                    <hr class="line">
+                </div>
+                
+                <button type="button" class="btn google-btn">Sign in with Google</button>
+                <p>Need an account? <a href="signup.html">Create one</a></p>
+            </form>
+        </div>
+        <div class="image-box">
+            <img src="images/roket wall.jpeg" alt="Rocket Launch">
+        </div>
+    </div>
+    <script src="js/signin.js"></script>
+</body>
+</html>

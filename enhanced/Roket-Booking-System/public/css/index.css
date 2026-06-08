@@ -1,0 +1,287 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensures the page takes up full height */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column; /* Makes the body a flex container */
+    justify-content: space-between; /* Pushes footer to the bottom */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Logo Section */
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 80px; /* Increased size of the rocket image */
+    height: auto; /* Maintains aspect ratio */
+    margin-right: 15px; /* Adjust spacing between image and text */
+}
+
+header .logo h1 {
+    color: white;
+    font-size: 48px; /* Increased font size for "BOOK!" */
+    font-weight: bold;
+}
+
+
+header nav {
+    margin-left: auto;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #333333;
+    border: none;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+header nav ul li a:hover {
+    background-color: #444444;
+    transform: scale(1.05);
+}
+
+/* Search Icon */
+header .search {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+header .search img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+header .search img:hover {
+    transform: scale(1.1);
+}
+
+/* Auth Button */
+header .auth {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+header .auth button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+header .auth button:hover {
+    background-color: #d11818;
+}
+
+
+/* Profile Picture */
+header .auth .profile-pic {
+    margin-left: 15px; /* Adds space between the button and profile picture */
+    width: 40px; /* Fixed width for the profile picture */
+    height: 40px; /* Fixed height for the profile picture */
+    border-radius: 50%; /* Makes the image circular */
+    overflow: hidden; /* Ensures the image doesn't overflow the container */
+    display: flex; /* Centers the image inside the container */
+    align-items: center;
+    justify-content: center;
+    background-color: #444444; /* Fallback color in case no image is loaded */
+}
+
+header .auth .profile-pic img {
+    width: 100%; /* Ensures the image fits within the container */
+    height: 100%;
+    object-fit: cover; /* Scales the image without distortion */
+}
+
+/* Main Content */
+main {
+    flex: 1; /* Ensures the main content takes up available space */
+    padding: 40px;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds spacing between the cards */
+}
+
+/* Card Container */
+.card {
+    display: flex;
+    align-items: flex-start; /* Aligns content at the top */
+    gap: 20px; /* Adds spacing between image and text */
+    background-color: #1a1a1a; /* Dark background for the card */
+    padding: 30px; /* Increases padding inside the card */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhances shadow for better effect */
+    max-width: 900px; /* Increases card width */
+    margin: 0 auto 30px; /* Centers the card horizontally and adds space below */
+}
+
+/* Card Hover Effect */
+.card {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+
+/* Image Styling */
+.card img {
+    width: 250px; /* Increases image width */
+    height: 150px; /* Increases image height */
+    border-radius: 8px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow */
+}
+
+/* Text Container */
+.card-text {
+    display: flex;
+    flex-direction: column; /* Stacks title and paragraph vertically */
+    gap: 15px; /* Adds spacing between title and paragraph */
+}
+
+/* Title Styling */
+.card-text h3 {
+    color: #ffffff;
+    font-size: 24px; /* Increases font size for the title */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Paragraph Styling */
+.card-text p {
+    color: #e0e0e0;
+    font-size: 16px; /* Increases font size for text */
+    line-height: 1.6; /* Adds more line spacing for better readability */
+}
+
+/* Footer */
+footer {
+    background-color: #111111;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+footer .footer-info {
+    margin-bottom: 10px;
+}
+
+footer .footer-info p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+footer .social-section {
+    display: flex;
+    align-items: center;
+}
+
+footer .social-section .follow-text {
+    margin-right: 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+footer .social-icons {
+    display: flex;
+    align-items: center;
+}
+
+footer .social-icons img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+footer .social-icons img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    footer .social-section {
+        margin-top: 10px;
+    }
+
+    footer .social-icons {
+        margin-top: 10px;
+    }
+
+    .card {
+        flex-direction: column; /* Stack image and text vertically on small screens */
+        text-align: center; /* Center-align text */
+    }
+
+    .card img {
+        margin-bottom: 10px; /* Add spacing between the image and text */
+    }
+}
