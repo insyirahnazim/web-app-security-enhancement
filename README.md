@@ -4,7 +4,7 @@
 
 | Name | Matric No |
 |------|-----------|
-| Member 1 | Matric No |
+| Nurlyana Izzati Binti Rahmat | 2227066 |
 | Member 2 | Matric No |
 | Nurizzati Insyirah Binti Mohd Nazim | 2227224 |
 | Member 4 | Matric No |
