@@ -246,8 +246,9 @@ Database security was enhanced by implementing Laravel's built-in security mecha
 Instead of executing raw SQL queries, the system utilizes Laravel Eloquent ORM and Query Builder, which automatically apply prepared statements and parameter binding. This separates user input from SQL commands and prevents malicious SQL code from being executed.
 
 User authentication is handled through Laravel's built-in authentication system:
-
+```php
 Auth::attempt($credentials, $remember);
+```
 
 This approach ensures that login credentials are securely processed without exposing the application to SQL injection vulnerabilities.
 
@@ -263,17 +264,18 @@ In addition, server-side input validation was implemented before data is process
         ->numbers()
         ->symbols(),
 ],
+```
 
 This validation ensures that only properly formatted and secure data is accepted by the system.
 
 To protect user credentials, passwords are hashed using bcrypt before being stored in the database:
-
+```php
 Hash::make($validated['password']);
+```
 
 Hashing converts passwords into irreversible encrypted values, preventing attackers from viewing original passwords even if the database is compromised.
 
 Furthermore, SQL injection testing was conducted using common attack payloads such as:
-
 ' OR '1'='1
 
 The attack was unsuccessful because Laravel's ORM, prepared statements, and input validation mechanisms prevented malicious input from interacting directly with database queries.
@@ -286,23 +288,21 @@ Overall, these security enhancements align with OWASP recommendations for secure
 
 File security controls were implemented to prevent unauthorized access to sensitive application files and reduce the risk of information leakage.
 
-One of the primary measures involved securing repository contents through the use of the .gitignore configuration file. Sensitive files and dependency folders were excluded from uploads and version control:
-
+One of the primary measures involved securing repository contents through the use of the `.gitignore` configuration file. Sensitive files and dependency folders were excluded from uploads and version control:
 .env
 /vendor
 /node_modules
 
-The .env file contains highly sensitive information such as:
-
-Database credentials
-Application secret keys
-Environment configuration settings
+The `.env` file contains highly sensitive information such as:
+- Database credentials
+- Application secret keys
+- Environment configuration settings
 
 Excluding these files from repository uploads prevents accidental disclosure of confidential information.
 
 In addition, sensitive routes and administrative functions were protected using Laravel middleware to restrict unauthorized access to application resources.
 
-The project also ensures that environment configuration files remain inaccessible through the web browser. The .env file is stored outside publicly accessible directories and is never exposed to end users.
+The project also ensures that environment configuration files remain inaccessible through the web browser. The `.env` file is stored outside publicly accessible directories and is never exposed to end users.
 
 Furthermore, directory browsing was disabled to prevent attackers from viewing application files and folder structures. This reduces the possibility of information disclosure and reconnaissance attacks.
 
