@@ -253,6 +253,7 @@ This approach ensures that login credentials are securely processed without expo
 
 In addition, server-side input validation was implemented before data is processed or stored in the database. For user registration, strong password policies were enforced:
 
+```php
 'password' => [
     'required',
     'confirmed',
