@@ -241,48 +241,71 @@ This enhancement prevents attackers from performing unauthorized actions such as
 
 ## 3.5 Database Security Principles
 
-Database security was strengthened through Laravel’s built-in ORM protection mechanisms and secure validation practices.
+Database security was enhanced by implementing Laravel's built-in security mechanisms to prevent SQL injection attacks, secure user authentication, and protect sensitive user information.
 
-Instead of directly executing raw SQL queries, Laravel ORM and prepared statements were utilized to separate user input from SQL commands, significantly reducing the risk of **SQL Injection attacks**.
+Instead of executing raw SQL queries, the system utilizes Laravel Eloquent ORM and Query Builder, which automatically apply prepared statements and parameter binding. This separates user input from SQL commands and prevents malicious SQL code from being executed.
 
-Additionally, passwords were securely stored using **bcrypt hashing** instead of plain text.
+User authentication is handled through Laravel's built-in authentication system:
 
-Example:
+Auth::attempt($credentials, $remember);
 
-```php
-Hash::make($request->password)
-```
+This approach ensures that login credentials are securely processed without exposing the application to SQL injection vulnerabilities.
 
-Hashing converts passwords into encrypted values that cannot be directly reversed, ensuring password confidentiality even if database exposure occurs.
+In addition, server-side input validation was implemented before data is processed or stored in the database. For user registration, strong password policies were enforced:
+
+'password' => [
+    'required',
+    'confirmed',
+    Password::min(8)
+        ->letters()
+        ->mixedCase()
+        ->numbers()
+        ->symbols(),
+],
+
+This validation ensures that only properly formatted and secure data is accepted by the system.
+
+To protect user credentials, passwords are hashed using bcrypt before being stored in the database:
+
+Hash::make($validated['password']);
+
+Hashing converts passwords into irreversible encrypted values, preventing attackers from viewing original passwords even if the database is compromised.
+
+Furthermore, SQL injection testing was conducted using common attack payloads such as:
+
+' OR '1'='1
+
+The attack was unsuccessful because Laravel's ORM, prepared statements, and input validation mechanisms prevented malicious input from interacting directly with database queries.
+
+Overall, these security enhancements align with OWASP recommendations for secure authentication and database protection.
 
 ---
 
 ## 3.6 File Security Principles
 
-File security improvements were implemented to reduce unnecessary exposure of sensitive files and project configurations.
+File security controls were implemented to prevent unauthorized access to sensitive application files and reduce the risk of information leakage.
 
-The following measures were applied:
+One of the primary measures involved securing repository contents through the use of the .gitignore configuration file. Sensitive files and dependency folders were excluded from uploads and version control:
 
-* `.env` file excluded from repository uploads
-* `vendor/` folder removed before submission
-* `node_modules/` excluded from uploads
-* Sensitive routes protected through middleware
-
-The `.env` file contains highly sensitive information including:
-
-* Database credentials
-* Application secret keys
-* Environment configuration
-
-To prevent exposure, sensitive files were excluded using `.gitignore`:
-
-```gitignore
 .env
 /vendor
 /node_modules
-```
 
-This enhancement minimizes the risk of credential leakage and improves secure repository management.
+The .env file contains highly sensitive information such as:
+
+Database credentials
+Application secret keys
+Environment configuration settings
+
+Excluding these files from repository uploads prevents accidental disclosure of confidential information.
+
+In addition, sensitive routes and administrative functions were protected using Laravel middleware to restrict unauthorized access to application resources.
+
+The project also ensures that environment configuration files remain inaccessible through the web browser. The .env file is stored outside publicly accessible directories and is never exposed to end users.
+
+Furthermore, directory browsing was disabled to prevent attackers from viewing application files and folder structures. This reduces the possibility of information disclosure and reconnaissance attacks.
+
+These file security measures significantly reduce the risk of credential leakage, unauthorized file access, and exposure of sensitive system information, while supporting secure repository and deployment practices.
 
 ---
 
