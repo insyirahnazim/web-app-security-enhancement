@@ -241,18 +241,18 @@ This enhancement prevents attackers from performing unauthorized actions such as
 
 ## 3.5 Database Security Principles
 
-Database security was enhanced by implementing Laravel's built-in security mechanisms to prevent SQL injection attacks, secure user authentication, and protect sensitive user information.
+Database security was enhanced by leveraging and strengthening Laravel's built-in security mechanisms to prevent SQL injection attacks, secure user authentication, and protect sensitive user information.
 
-Instead of executing raw SQL queries, the system utilizes Laravel Eloquent ORM and Query Builder, which automatically apply prepared statements and parameter binding. This separates user input from SQL commands and prevents malicious SQL code from being executed.
+The system utilizes Laravel Eloquent ORM and Query Builder, which automatically apply prepared statements and parameter binding. This existing mechanism separates user input from SQL commands and prevents malicious SQL code from being executed. The enhancement ensures that no raw SQL queries are introduced throughout the application, maintaining this protection consistently.
 
 User authentication is handled through Laravel's built-in authentication system:
 ```php
 Auth::attempt($credentials, $remember);
 ```
 
-This approach ensures that login credentials are securely processed without exposing the application to SQL injection vulnerabilities.
+This was retained and strengthened with server-side input validation added before the authentication process, ensuring that login credentials are securely processed without exposing the application to SQL injection vulnerabilities.
 
-In addition, server-side input validation was implemented before data is processed or stored in the database. For user registration, strong password policies were enforced:
+In addition, **server-side input validation** was implemented before data is processed or stored in the database. For user registration, the original basic password rule was replaced with a strong password policy:
 
 ```php
 'password' => [
@@ -273,7 +273,7 @@ To protect user credentials, passwords are hashed using bcrypt before being stor
 Hash::make($validated['password']);
 ```
 
-Hashing converts passwords into irreversible encrypted values, preventing attackers from viewing original passwords even if the database is compromised.
+This hashing mechanism was verified and retained as part of the security enhancement. Hashing converts passwords into irreversible encrypted values, preventing attackers from viewing original passwords even if the database is compromised.
 
 Furthermore, SQL injection testing was conducted using common attack payloads such as:
 ' OR '1'='1
